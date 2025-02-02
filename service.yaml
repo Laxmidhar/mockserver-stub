@@ -1,12 +1,11 @@
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: mockserver-stub-service
-  namespace: sahoo19laxmidhar-dev
+  name: mockserver-service
 spec:
   selector:
-    app: mockserver-stub
+    app: mockserver
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 8080
+      port: 1080
+      targetPort: 1080

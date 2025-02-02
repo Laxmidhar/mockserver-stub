@@ -1,6 +1,6 @@
 const mockServerClient = require("mockserver-client").mockServerClient;
 
-mockServerClient("localhost", 1080)
+mockServerClient("mockserver-stub-git", 1080)
     .mockAnyResponse({
         httpRequest: {
             method: "GET",

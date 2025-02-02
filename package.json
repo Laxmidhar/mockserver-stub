@@ -8,6 +8,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "mockserver-client": "^5.15.0",
+    "mockserver-node": "^5.15.0",
     "asap": "^2.0.6",
     "balanced-match": "^1.0.2",
     "brace-expansion": "^2.0.1",

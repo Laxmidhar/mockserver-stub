@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mockclient-deployment
+  name: mockserver-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mockclient
+      app: mockserver
   template:
     metadata:
       labels:
-        app: mockclient
+        app: mockserver
     spec:
       containers:
-        - name: mockclient
+        - name: mockserver
           image: node:16
-          command: ["npm", "run", "start-client"]
+          command: ["npm", "run", "start-server"]
           volumeMounts:
             - mountPath: /usr/src/app
-              name: mockclient-volume
+              name: mockserver-volume
       volumes:
-        - name: mockclient-volume
+        - name: mockserver-volume
           configMap:
-            name: mockclient-config
+            name: mockserver-config

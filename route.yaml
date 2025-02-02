@@ -1,13 +1,10 @@
-kind: Route
 apiVersion: route.openshift.io/v1
+kind: Route
 metadata:
-  name: mockserver-stub-route
-  namespace: sahoo19laxmidhar-dev
+  name: mockclient-route
 spec:
   to:
     kind: Service
-    name: mockserver-stub-service
+    name: mockclient-service
   port:
     targetPort: 8080
-  tls:
-    termination: edge
