@@ -1,0 +1,23 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: mockserver-stub
+  namespace: sahoo19laxmidhar-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mockserver-stub
+  template:
+    metadata:
+      labels:
+        app: mockserver-stub
+    spec:
+      containers:
+        - name: mockserver-stub
+          image: "image-registry.openshift-image-registry.svc:5000/sahoo19laxmidhar-dev/mockserver-stub-git:latest"
+          ports:
+            - containerPort: 8080
+          env:
+            - name: NODE_ENV
+              value: "production"

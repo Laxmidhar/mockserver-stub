@@ -1,0 +1,28 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: mockserver-stub-git
+  namespace: sahoo19laxmidhar-dev
+  labels:
+    app: mockserver-stub-git
+spec:
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/Laxmidhar/mockserver-stub.git'
+    contextDir: "/"  # Ensure correct context
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: DockerImage
+        name: "image-registry.openshift-image-registry.svc:5000/openshift/nodejs:20-minimal-ubi8"
+  output:
+    to:
+      kind: ImageStreamTag
+      name: "mockserver-stub-git:latest"
+  triggers:
+    - type: GitHub
+      github:
+        secret: "your-webhook-secret"
+    - type: ConfigChange

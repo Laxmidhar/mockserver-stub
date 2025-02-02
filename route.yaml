@@ -1,0 +1,13 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: mockserver-stub-route
+  namespace: sahoo19laxmidhar-dev
+spec:
+  to:
+    kind: Service
+    name: mockserver-stub-service
+  port:
+    targetPort: 8080
+  tls:
+    termination: edge
